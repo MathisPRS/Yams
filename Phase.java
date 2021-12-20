@@ -4,6 +4,7 @@ public class Phase {
 
     private Joueurs joueurs;
     private Combos combos;
+    Dés LancerDes = new Dés();
 
     public Phase(Joueurs joueurs,Combos combos){
         this.joueurs = joueurs;
@@ -12,8 +13,12 @@ public class Phase {
      public void DeroulementPhase(){
         try {
             for (Joueur joueur : joueurs.getJoueurs()) {
-                System.out.println("C'est à" + joueur.getNom() + " de jouer");
+                System.out.println("---------------------------- \n---------------------------- ");
 
+                System.out.println("C'est à " + joueur.getNom() + " de jouer !!!");
+                //Le joueur lance les dés
+                this.LancerDes.LancerDes();
+                LancerDes.getDes().clear();
             }
         }catch (NullPointerException e){
             System.out.println("ça return null");

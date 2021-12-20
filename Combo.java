@@ -5,7 +5,7 @@ public class Combo {
     private String nom;
     private int score = 0;
     private EtatCombo etat;
-    private Dè dè;
+    private Dé dè;
 
 
     public Combo(String nom){
@@ -26,11 +26,11 @@ public class Combo {
         this.etat = etat;
     }
 
-    public Dè getDè() {
+    public Dé getDè() {
         return dè;
     }
 
-    public void setDè(Dè dè) {
+    public void setDè(Dé dè) {
         this.dè = dè;
     }
     public void setScore(int score) {
