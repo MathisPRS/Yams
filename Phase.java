@@ -13,11 +13,13 @@ public class Phase {
      public void DeroulementPhase(){
         try {
             for (Joueur joueur : joueurs.getJoueurs()) {
-                System.out.println("---------------------------- \n---------------------------- ");
+                System.out.println("---------------------------- \n");
 
                 System.out.println("C'est à " + joueur.getNom() + " de jouer !!!");
                 //Le joueur lance les dés
                 this.LancerDes.LancerDes();
+                this.LancerDes.afficherdes();
+                this.LancerDes.RelancerDes();
                 LancerDes.getDes().clear();
             }
         }catch (NullPointerException e){

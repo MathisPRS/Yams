@@ -4,12 +4,15 @@ public class Joueur {
 
     private String nom;
     private int score = 0;
+    private int compteur = 0;
     private EtatJoueur etat;
+
 
 
     public Joueur(String nom){
         this.nom = nom;
         this.etat = EtatJoueur.EN_ATTENTE;
+        this.score = 0;
     }
 
     public String getNom() {
@@ -31,5 +34,12 @@ public class Joueur {
     }
     public int getScore() {
         return score;
+    }
+
+    public int getCompteur() {
+        return compteur;
+    }
+    public void setCompteur(int compteur) {
+        this.compteur = compteur;
     }
 }

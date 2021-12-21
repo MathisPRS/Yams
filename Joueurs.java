@@ -25,8 +25,9 @@ public class Joueurs {
     }
 
     public void afficherJoueurs() {
+        System.out.println("Les Participants pour cette partie sont :\n");
         for (Joueur joueur : this.joueurs) {
-            System.out.println(joueur.getNom());
+            System.out.println("--> "+joueur.getNom());
         }
     }
 
