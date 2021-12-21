@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class RèglesduJeu {
-    public static void main(String args[]) {
+    public static void regles(String args[]) {
     }
 
 }

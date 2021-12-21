@@ -1,15 +1,24 @@
 package com.company;
-
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Combos {
-
+    Dés Des = new Dés();
 //http://www.codeurjava.com/2015/08/compter-le-nombre-de-repetition-dun-element-dans-arraylist-en-java.html
     //calcule de répétition dans une liste
 
+
+    public void scanne() {
+        System.out.println("Analyse de votre coup ...");
+        for (Dé dé : this.Des.getDes()) {
+            System.out.println("Dè n°" + " ----------->" + dé.getFace());
+            System.out.println("22222222");
+
+        }
+        System.out.println("Vous avez fait :");
+
+    }
     public void Un() {
 
     }

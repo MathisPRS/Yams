@@ -29,10 +29,6 @@ public class Combo {
     public Dé getDè() {
         return dè;
     }
-
-    public void setDè(Dé dè) {
-        this.dè = dè;
-    }
     public void setScore(int score) {
         this.score = score;
     }

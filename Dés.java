@@ -37,7 +37,6 @@ public class Dés {
             if (this.compteur == 2) {
                 System.out.println("Tu n'as plus de lancé! ton lancer finale est :");
                 afficherdes();
-                System.out.println("Appuyer sur entrer pour passer au joueur suivant :");
                 compteur =0;
                 check =false;
             }else {

@@ -7,7 +7,12 @@ public class Main {
         Combos combos = new Combos();
         Phase phase = new Phase(joueurs, combos);
 
+        //Pour ajouter des joueur
+        joueurs.Joueurs();
+
         joueurs.afficherJoueurs();
+
+        //Pour Commencer le jeux (phase)
         phase.DeroulementPhase();
 
     }
