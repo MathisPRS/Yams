@@ -5,76 +5,147 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-public class LancerDes {
-    private List<Dè> des =new ArrayList<Dè>();
+public class Dés {
+    private List<Dé> des =new ArrayList<Dé>();
+    private List<Dé> desSelectionnees =new ArrayList<Dé>();
+    private int compteur = 0;
 
-    public void LancerDes()
-    {
 
+    public void LancerDes() {
         Scanner input = new Scanner(System.in);
-        int nombredes = input.nextInt();
-
         Random ranNum = new Random();
-
-        int total = 0;
         int nombrealeatoire;
-
-        for (int i = 0; i < nombredes; i++) {
-
+        for (int i =0; i < 5 ; i++) {
             nombrealeatoire = ranNum.nextInt(6) +1;
-
-            des.add(new Dè(nombrealeatoire));
-            }
-            afficherdes();
-        }
-
-    public void RelancerDes(){
-
-        for (int i = 0; i < 5; i++)
-        System.out.print("Quels Dés voulez-vous relancer ? \n" +
-                "------> Ecrivez le numéro du dés à relancer \n" +
-                "------> Ecrivez les numéros 1 par 1 et pour finir ecrivez le chiffre '0' ");
-        Scanner input = new Scanner(System.in);
-        int dés = input.nextInt();
-
-        switch (dés){
-            case 0:
-                LancerDes();
-                break;
-            case 1:
-                 = 1;
-                this.des.set(0,face);
-                break;
-            case 2:
-                // instructions à exécuter si expression est égale à valeur3
-                break;
-            case 3:
-                // instructions à exécuter si expression est égale à valeur3
-                break;
-            case 4:
-                // instructions à exécuter si expression est égale à valeur3
-                break;
-            case 5:
-                // instructions à exécuter si expression est égale à valeur3
-                break;
-            default:
-                System.out.print("La valeurs que vous avez entrez n'est pas correcte, \n " +
-                        "Il ne faut pas écrire '1 2 5', Il faut ecrire les numéros 1 par 1");
-                break;
+            Dé dés = new Dé(nombrealeatoire);
+            des.add(dés);
         }
     }
 
+    public void RelancerDes(){
+        //Initialisation des variable pour num aleatoire, et la face a changer
+
+        Random ranNum = new Random();
+        Scanner input = new Scanner(System.in);
+        int nombrealeatoire;
+        int numdes;
+        boolean check = true;
+
+        //Affichage de la demande
+        while (check) {
+
+            if (this.compteur == 2) {
+                System.out.println("Tu n'as plus de lancé! ton lancer finale est :");
+                afficherdes();
+                System.out.println("Appuyer sur entrer pour passer au joueur suivant :");
+                compteur =0;
+                check =false;
+            }else {
+                System.out.print("\nQuels Dés voulez-vous relancer ? \n" +
+                        "------> Ecrivez le numéro du dés à relancer \n" +
+                        "------> Ecrivez les numéros 1 par 1 et pour finir ecrivez le chiffre '0' \n" +
+                        "-----------------------------------------------------------------------------\n");
+
+                int dés = input.nextInt();
+                switch (dés) {
+                    case 0:
+                        this.compteur = compteur + 1;
+                        if (compteur != 2){
+                            afficherdes();
+                        }
+                        break;
+                    case 1:
+                        numdes = 0;
+                        nombrealeatoire = ranNum.nextInt(6) + 1;
+                        this.des.set(numdes, new Dé(nombrealeatoire));
+                        System.out.print("Vous avez relancé le dés num°1, Voulez vous en relancer un autre ? \n" +
+                                "--------Le resultats de vos des relancé vous seront affiché une fois que vous aurez finis le lancé");
+                        break;
+                    case 2:
+                        numdes = 1;
+                        nombrealeatoire = ranNum.nextInt(6) + 1;
+                        this.des.set(numdes, new Dé(nombrealeatoire));
+                        System.out.print("Vous avez relancé le dés num°2, Voulez vous en relancer un autre ? \n" +
+                                "--------Le resultats de vos des relancé vous seront affiché une fois que vous aurez finis le lancé");
+                        break;
+                    case 3:
+
+                        numdes = 2;
+                        nombrealeatoire = ranNum.nextInt(6) + 1;
+                        this.des.set(numdes, new Dé(nombrealeatoire));
+                        System.out.print("Vous avez relancé le dés num°3, Voulez vous en relancer un autre ? \n" +
+                                "--------Le resultats de vos des relancé vous seront affiché une fois que vous aurez finis le lancé");
+                        break;
+                    case 4:
+                        numdes = 3;
+                        nombrealeatoire = ranNum.nextInt(6) + 1;
+                        this.des.set(numdes, new Dé(nombrealeatoire));
+                        System.out.print("Vous avez relancé le dés num°4, Voulez vous en relancer un autre ? \n" +
+                                "--------Le resultats de vos des relancé vous seront affiché une fois que vous aurez finis le lancé");
+                        break;
+                    case 5:
+                        numdes = 4;
+                        nombrealeatoire = ranNum.nextInt(6) + 1;
+                        this.des.set(numdes, new Dé(nombrealeatoire));
+                        System.out.print("Vous avez relancé le dés num°5, Voulez vous en relancer un autre ? \n" +
+                                "--------Le resultats de vos des relancé vous seront affiché une fois que vous aurez finis le lancé");
+                        break;
+                    default:
+                        System.out.print("La valeurs que vous avez entrez n'est pas correcte, \n " +
+                                "Il ne faut pas écrire '1 2 5', Il faut ecrire les numéros 1 par 1");
+                        break;
+                }
+            }
+        }
+    }
 
     public void afficherdes(){
-        System.out.print("Tu as obtenu: \n");
-        int i = 0;
-        for (Dè dè : this.des) {
-            i++;
-            System.out.println("Dè n°"+i+" ----------->"+dè.getFace());
+        int i;
+        switch (compteur) {
+            case 0 :
+                System.out.print("\n"+"------------------------------"+"\nPour ton 1er lancé tu as obtenu: \n");
+                i = 0;
+                for (Dé dé : this.des) {
+                    i++;
+                    System.out.println("Dè n°" + i + " ----------->" + dé.getFace());
+                }
+                break;
+            case 1 :
+                System.out.print("\n"+"------------------------------"+"\nPour ton 2ème lancé tu as obtenu: \n");
+                i = 0;
+                for (Dé dé : this.des) {
+                    i++;
+                    System.out.println("Dè n°" + i + " ----------->" + dé.getFace());
+                }
+                break;
+            case 2 :
+                System.out.print("\n"+"------------------------------"+"\nPour ton derniers lancé tu as obtenu: \n");
+                i = 0;
+                for (Dé dé : this.des) {
+                    i++;
+                    System.out.println("Dè n°" + i + " ----------->" + dé.getFace());
+                }
+                break;
         }
     }
 
     public void totaldes() {
         /*total = total + nombrealeatoire;*/
+    }
+
+    public List<Dé> getDes() {
+        return des;
+    }
+
+    public void setDes(List<Dé> des) {
+        this.des = des;
+    }
+
+    public List<Dé> getDesSelectionnees() {
+        return desSelectionnees;
+    }
+
+    public void setDesSelectionnees(List<Dé> desSelectionnees) {
+        this.desSelectionnees = desSelectionnees;
     }
 }

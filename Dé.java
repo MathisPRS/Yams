@@ -1,11 +1,11 @@
 package com.company;
 
-public class Dè {
+public class Dé {
 
     private int face = 0;
     private EtatDés etat;
 
-    public Dè(int face) {
+    public Dé(int face) {
         this.face= face;
         this.etat = EtatDés.CONSERVE;
     }
