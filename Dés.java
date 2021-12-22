@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class Dés {
     private List<Dé> des =new ArrayList<Dé>();
     private List<Dé> desSelectionnees =new ArrayList<Dé>();
+    private Combos combos;
     private int compteur = 0;
-
 
     public void LancerDes() {
         Scanner input = new Scanner(System.in);
@@ -43,11 +43,13 @@ public class Dés {
                 System.out.print("\nQuels Dés voulez-vous relancer ? \n" +
                         "------> Ecrivez le numéro du dés à relancer \n" +
                         "------> Ecrivez les numéros 1 par 1 et pour finir ecrivez le chiffre '0' \n" +
-                        "-----------------------------------------------------------------------------\n");
+                        "-----------------------------------------------------------------------------\n" +
+                        "En attente d'une réponse : ");
 
                 int dés = input.nextInt();
                 switch (dés) {
                     case 0:
+                        System.out.print("Vous avez terminé ce lancer !");
                         this.compteur = compteur + 1;
                         if (compteur != 2){
                             afficherdes();
@@ -57,14 +59,16 @@ public class Dés {
                         numdes = 0;
                         nombrealeatoire = ranNum.nextInt(6) + 1;
                         this.des.set(numdes, new Dé(nombrealeatoire));
-                        System.out.print("Vous avez relancé le dés num°1, Voulez vous en relancer un autre ? \n" +
+                        System.out.print("-----------------------------------------------------------------------------\n" +
+                                "Vous avez relancé le dés num°1, Voulez vous en relancer un autre ? \n" +
                                 "--------Le resultats de vos des relancé vous seront affiché une fois que vous aurez finis le lancé");
                         break;
                     case 2:
                         numdes = 1;
                         nombrealeatoire = ranNum.nextInt(6) + 1;
                         this.des.set(numdes, new Dé(nombrealeatoire));
-                        System.out.print("Vous avez relancé le dés num°2, Voulez vous en relancer un autre ? \n" +
+                        System.out.print("-----------------------------------------------------------------------------\n" +
+                                "Vous avez relancé le dés num°2, Voulez vous en relancer un autre ? \n" +
                                 "--------Le resultats de vos des relancé vous seront affiché une fois que vous aurez finis le lancé");
                         break;
                     case 3:
@@ -72,21 +76,24 @@ public class Dés {
                         numdes = 2;
                         nombrealeatoire = ranNum.nextInt(6) + 1;
                         this.des.set(numdes, new Dé(nombrealeatoire));
-                        System.out.print("Vous avez relancé le dés num°3, Voulez vous en relancer un autre ? \n" +
+                        System.out.print("-----------------------------------------------------------------------------\n" +
+                                "Vous avez relancé le dés num°3, Voulez vous en relancer un autre ? \n" +
                                 "--------Le resultats de vos des relancé vous seront affiché une fois que vous aurez finis le lancé");
                         break;
                     case 4:
                         numdes = 3;
                         nombrealeatoire = ranNum.nextInt(6) + 1;
                         this.des.set(numdes, new Dé(nombrealeatoire));
-                        System.out.print("Vous avez relancé le dés num°4, Voulez vous en relancer un autre ? \n" +
+                        System.out.print("-----------------------------------------------------------------------------\n" +
+                                "Vous avez relancé le dés num°4, Voulez vous en relancer un autre ? \n" +
                                 "--------Le resultats de vos des relancé vous seront affiché une fois que vous aurez finis le lancé");
                         break;
                     case 5:
                         numdes = 4;
                         nombrealeatoire = ranNum.nextInt(6) + 1;
                         this.des.set(numdes, new Dé(nombrealeatoire));
-                        System.out.print("Vous avez relancé le dés num°5, Voulez vous en relancer un autre ? \n" +
+                        System.out.print("-----------------------------------------------------------------------------\n" +
+                                "Vous avez relancé le dés num°5, Voulez vous en relancer un autre ? \n" +
                                 "--------Le resultats de vos des relancé vous seront affiché une fois que vous aurez finis le lancé");
                         break;
                     default:

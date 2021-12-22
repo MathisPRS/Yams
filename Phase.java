@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Phase {
@@ -20,19 +22,29 @@ public class Phase {
 
                 System.out.println("C'est à " + joueur.getNom() + " de jouer !!!");
 
-                //Phase ou le joueur joue,il lance les dés
+                // Phase ou le joueur joue,il lance les dés
                 this.Des.LancerDes();
                 this.Des.afficherdes();
                 this.Des.RelancerDes();
-                this.combos.scanne();
+
+//                Puisque je suis nul en java j'insere la liste de des dans une autre liste appelé des Scanner (ça me sert de pont)
+                for (Dé dé : this.Des.getDes()) {
+
+                    int désScanner = dé.getFace();
+                    this.combos.getDesScanner().add(désScanner);
+                }
+
                 //Analyse de se qu'il a fait
+                this.combos.scanne();
 
-
-                //passation à l'autre joueur
-                //On remet la liste a 0 pour l'autre joueurs
-                Des.getDes().clear();
+                //Passation à l'autre joueur,
                 System.out.println("Appuyer sur 'ENTRER' pour passer au joueur suivant ");
                 String pause = input.nextLine();
+                //On remet la liste a 0 pour l'autre joueurs
+                this.Des.getDes().clear();
+                this.combos.getOccurence().clear();
+                this.combos.getDesScanner().clear();
+
             }
         }catch (NullPointerException e){
             System.out.println("ça return null");

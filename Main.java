@@ -4,6 +4,7 @@ public class Main {
     public static void main(String args[])
     {
         Joueurs joueurs = new Joueurs();
+        Dés dés = new Dés();
         Combos combos = new Combos();
         Phase phase = new Phase(joueurs, combos);
 
